@@ -1,0 +1,189 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body,html{
+    height: 130vh;
+}
+.wrapper{
+    display: flex;
+}
+.navbar{
+    display: flex;
+    flex-direction: column;
+    height: 130vh;
+    width: 15%;
+    /* justify-content: space-between; */
+    box-shadow: 0px 15px 10px -15px #111;
+    padding: 1em 2em 0; 
+    background-image: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
+}
+.logo{
+    font-size: 2.5em;
+    text-align: center;
+    color: #fff;
+    margin-bottom: 1.5em;
+}
+
+.user_icon{
+    border-radius: 50%;
+    width: 3em;
+    height: 3em;
+    background-color: rgb(255, 8, 144);
+    cursor: pointer;
+}
+
+.list_item{
+    margin-bottom: 0.5em;
+    list-style: none;
+    margin-bottom: 1.2em;
+    font-size: 2em;
+    color: #fff;
+    font-style: arial;
+    cursor: pointer;
+}
+
+.list_item:hover{
+    font-weight: 600;
+}
+
+.first_section{
+    display: flex;
+    margin-top: 2em;
+    padding: 0.5em 2em 0.5em 4em;
+    justify-content: space-between;
+}
+
+.second_section{
+    display: flex;
+    justify-content: space-between;
+}
+
+.small_heading{
+    font-size: 1.5em;
+    letter-spacing: 1.2px;
+}
+
+.big_heading{
+    font-size: 2.5em;
+    font-weight: 600;
+    letter-spacing: 1.2px;
+}
+.progress{
+    width: 40%;
+    background-color: #fff;
+    padding: 1em;
+    font-size: 2.5em;
+    text-align: center;
+    margin-left: 1.5em;
+    margin-right: 1.5em;
+    margin-top: 1.2em;
+}
+
+.history_wrapper{
+    padding: 1em;
+    margin-left: 2em;
+    margin-top: 3em;
+    /* background-color: #fff; */
+    height: 15em;
+    padding-top: 2em;
+    width: 60%;
+}
+
+.history{
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5em 1em;
+    background-color: #fff;
+    box-shadow: 0px 15px 10px -15px #111;
+    margin-bottom: 1em;
+    border-radius: 0.375rem;
+}
+
+.test{
+    padding: 0.8em 1.8em;
+    background-color: #fff;
+    box-shadow: 0px 15px 10px -15px #111;
+    margin-bottom: 1em;
+    border-radius: 0.375rem;
+    letter-spacing: 1.05px;
+    cursor: pointer;
+}
+
+.content{
+    font-size: 1.5em;
+}
+
+.content_sm{
+    font-size: 1.25em;
+}
+
+.upcoming_tests_wrapper{
+    padding: 1em;
+    margin-left: 1.5em;
+    margin-right: 1.5em;
+    margin-top: 3em;
+    /* background-color: #fff; */
+    height: 15em;
+    padding-top: 2em;
+    width: 30%;
+}
+
+
+.dashboard_body{
+    width: 85%;
+    background-color: #ecf8ff;
+}
+
+.third_section{
+    margin-top: 3.5em;
+    padding: 0.5em 2em 0.5em 4em;
+    height: 12em;
+}
+
+.section_heading{
+    font-size: 2em;
+    letter-spacing: 1.2px;
+    margin-bottom: 1em;
+}
+
+.section_heading_sm{
+    font-size: 1.5em;
+    letter-spacing: 1.2px;
+    margin-bottom: 1em;
+}
+
+span{
+    font-weight: 600;
+}
+
+.track{
+    height: 100%;
+    text-align: center;
+    padding: 0.5em;
+    /* background-color: #fff; */
+    margin-right: 1.5em;
+    display: flex;
+}
+
+.lesson_wrapper{
+    height: 100%;
+}
+
+.lesson{
+    font-size: 1.3em;
+    cursor: pointer;
+    background-color: #fff;
+    margin-right:1.5em;
+    width: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0.375rem;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+
+.sub_tracks:hover{
+    font-weight: 600;
+}
