@@ -1,0 +1,146 @@
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wdth,wght@82.9,340;90,340&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+html,body{
+    height: 100vh;
+    overflow: hidden;
+}
+
+body{
+    font-family: 'Open Sans', sans-serif;
+}
+
+h1,.heading2,.heading3{
+    text-align: center;
+    letter-spacing: 1px;
+    /* color: rgb(247, 238, 238); */
+    /* padding-bottom: 2rem; */
+}
+.wrapper{
+    display: flex;
+}
+.logo_div,.login_div{
+    height: 100vh;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo_div{
+    width: 30%;
+    background-image: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
+    color: rgb(44, 43, 43);
+}
+
+.login_div{
+    width: 70%;
+    font-family: 'Open Sans', sans-serif;
+}
+
+
+h1{
+    font-size: 4rem;
+    font-family: 'Amatic SC', cursive;
+    padding-bottom: 2rem;
+}
+
+.heading2{
+    font-size: 2rem;
+    width: 90;
+    margin-bottom: 7rem;
+    font-weight: 600;
+    color: rgb(44, 43, 43);
+}
+
+.heading3{
+    font-size: 2.5rem;
+}
+
+.tagline{
+    font-size: 1.4em;
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+}
+.login{
+    display: flex;
+    justify-content: space-around;
+}
+
+
+.registrationFormLegend{
+    font-weight: 600;
+    font-size: 2.7em;
+    margin-bottom: 3rem;
+    font-family: 'Lato', sans-serif;
+    letter-spacing: 1.2px;
+    color: #13e1ecec;
+}
+
+legend, fieldset{
+    border: none;
+}
+
+input{
+    border: none;
+    padding: 1em 3em;
+    margin-bottom: 2em;
+    background-color: #f2f2f5;
+    font-size: 1.2em;
+    border-radius: 0.375em;
+    width: 20rem;
+}
+
+input:focus{
+    outline: none;
+}
+
+.btn{
+    width: 12rem;
+    border: none;
+    outline: none;
+    background-image: linear-gradient(to right, #4facfe 10%, #00f2fe 90%);
+    font-size: 1.7em;
+    color:#f2f2f5;
+    padding: 0.5em;
+    border-radius: 0.875em;
+    margin-top: 0.5em;
+    cursor: pointer;
+}
+
+.btn_border{
+    border: solid 1px white;
+    outline: none;
+    padding: 0.5em;
+    font-size: 1.7em;
+    border-radius: 0.875em;
+    margin-top: 0.5em;
+    cursor: pointer;
+    background-color: inherit;
+    width: 9em;
+    margin-top: 2em;
+    color: rgb(44, 43, 43);
+}
+
+.button_container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.button_link, .button_link:visited, .button_link:focus{
+    text-decoration: none;
+    color: rgb(44, 43, 43);
+}
+
+.status{
+    font-weight: bold;
+    font-size: 18px;
+}
