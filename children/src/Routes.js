@@ -9,6 +9,7 @@ import Login from "./pages/Login/Login";
 import Register from "./pages/Register/Register";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import NotFound from "./pages/NotFound/NotFound";
+import Quiz from "./pages/Quiz/quiz";
 const Routes = (props) => (
   <Router {...props}>
     <Switch>
@@ -20,6 +21,9 @@ const Routes = (props) => (
       </Route>
       <Route path="/dashboard">
         <Dashboard />
+      </Route>
+      <Route path="/quiz">
+        <Quiz />
       </Route>
       <Route exact path="/">
         <Redirect to="/dashboard" />
