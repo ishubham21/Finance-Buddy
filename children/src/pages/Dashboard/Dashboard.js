@@ -102,7 +102,7 @@ const Dashboard = () => {
                                 <div className={styles.tests_content}>
 
                                     {childData.assignedQuizzes.length === 0 ? <div className={styles.test}>No dues</div> : childData.assignedQuizzes.map((quiz, index) => {
-                                        return <div className={styles.test} key={index} onClick={loadQuiz(quiz.quizTopic)}>
+                                        return <div className={styles.test} key={index} onClick={() => {loadQuiz(quiz.quizTopic)}}>
                                             <p className={styles.content_sm}>{quiz.quizTopic.toUpperCase()}</p>
                                         </div>
                                     })}
@@ -117,7 +117,7 @@ const Dashboard = () => {
                                 <div className={styles.track}>
 
                                     {childData.assignedLessons.length === 0 ? <div className={styles.lesson}>No dues</div> : childData.assignedLessons.map((lesson, index) => {
-                                        return <div className={styles.lesson} key={index} onClick={loadLesson(lesson.lessonTopic)}>
+                                        return <div className={styles.lesson} key={index} onClick={() => {loadLesson(lesson.lessonTopic)}}>
                                             {lesson.lessonTopic.toUpperCase()}
                                         </div>
                                     })}
