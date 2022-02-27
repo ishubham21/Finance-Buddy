@@ -7,6 +7,15 @@ const Dashboard = () => {
     const history = useHistory();
     const [email, setEmail] = useState(null);
     console.log(localStorage.getItem("token"));
+
+    const handleClick = (e) =>{
+        const request = {
+            method: "GET",
+            // headers: {
+            //     "Content-Type": "application/json",
+            // }, 
+        };
+    };
     const requestOptions = {
         method: "GET",
         headers: {
@@ -32,7 +41,6 @@ const Dashboard = () => {
             <div className={styles.navbar}>
                 <h1 className={styles.logo}>Finance Buddy</h1>
                 <div className={styles.sidebar_content}>
-                    {/* <div className={styles.user_icon}></div> */}
                     <ul className={styles.side_menu}>
                         <li className={styles.list_item}>Dashboard</li>
                         <li className={styles.list_item}>Assign Quizes</li>
@@ -43,30 +51,6 @@ const Dashboard = () => {
                 </div>
             </div>
             <div className={styles.dashboard_body}>
-                {/* <div className={styles.first_section}>
-                    <div className={styles.progress}>Progress</div>
-                    <div className={styles.add_children}>
-                        <fieldset>
-                            <legend className={styles.addChildrenLegend}>
-                                Add Children
-                            </legend>
-                            <form>
-                                <div className="form-group">
-                                    <input
-                                        id="inputForEmail"
-                                        type="email"
-                                        className={styles.form_control}
-                                        aria-describedby="Enter email address"
-                                        placeholder="Email"
-                                        onChange={(e) => {
-                                            setEmail(e.target.value);
-                                        }}
-                                    />
-                                </div>
-                            </form>
-                        </fieldset>
-                    </div>
-                </div> */}
                 <div className={styles.first_section}>
                     <div className={styles.name_div}>
                         <p className={styles.small_heading}>Hello!</p>
@@ -102,10 +86,22 @@ const Dashboard = () => {
                     </p>
                     <div className={styles.tracks_wrapper}>
                         <div className={styles.track}>
-                            Quizzes
+                            <p className={styles.track_heading}>Quizzes</p>
+                            <div className={styles.sub_tracks_wrapper}>
+                                <div className={styles.sub_tracks} onClick={handleClick}>SIP</div>
+                                <div className={styles.sub_tracks} onClick={handleClick}>Mutual Funds</div>
+                                <div className={styles.sub_tracks} onClick={handleClick}>NFTs</div>
+                                <div className={styles.sub_tracks} onClick={handleClick}>Crypto</div>
+                            </div>
                         </div>
                         <div className={styles.track}>
-                            Lessons
+                            <p className={styles.track_heading}>Lessons</p>
+                            <div className={styles.sub_tracks_wrapper}>
+                                <div className={styles.sub_tracks} onClick={handleClick}>SIP</div>
+                                <div className={styles.sub_tracks} onClick={handleClick}>Mutual Funds</div>
+                                <div className={styles.sub_tracks} onClick={handleClick}>NFTs</div>
+                                <div className={styles.sub_tracks} onClick={handleClick}>Crypto</div>
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -4,7 +4,7 @@
 }
 
 body,html{
-    height: 150vh;
+    height: 180vh;
 }
 .wrapper{
     display: flex;
@@ -12,7 +12,7 @@ body,html{
 .navbar{
     display: flex;
     flex-direction: column;
-    height: 150vh;
+    height: 180vh;
     width: 15%;
     /* justify-content: space-between; */
     box-shadow: 0px 15px 10px -15px #111;
@@ -41,7 +41,11 @@ body,html{
     font-size: 2em;
     color: #fff;
     font-style: arial;
+    cursor: pointer;
+}
 
+.list_item:hover{
+    font-weight: 600;
 }
 
 .first_section{
@@ -105,7 +109,7 @@ body,html{
 .third_section{
     margin-top: 2em;
     padding: 0.5em 2em 0.5em 4em;
-    height: 15em;
+    height: 25em;
 }
 
 .section_heading{
@@ -121,14 +125,32 @@ span{
 .tracks_wrapper{
     display: flex;
     height: 100%;
+    flex-direction: column;
 }
 
 .track{
-    width: 50%;
+    height: 50%;
     text-align: center;
-    padding-top: 1.5em;
+    padding: 1.5em 7em;
     background-color: #fff;
     margin-right: 1.5em;
-    font-size: 2em;
+    margin-bottom: 1.5em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
+}
+
+.track_heading{
+    font-size: 2.9em;
+}
+
+.sub_tracks{
+    margin: 1em 0;
+    font-size: 1.5em;
+    cursor: pointer;
+}
+
+.sub_tracks:hover{
+    font-weight: 600;
 }
