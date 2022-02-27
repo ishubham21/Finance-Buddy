@@ -32,7 +32,7 @@ const Login = () => {
       .then(({ error, data }) => {
         const hasError = error != null;
         setStatusText(hasError ? `${error}` : "logging in");
-        if(!hasError){
+        if (!hasError) {
           setTimeout(() => {
             localStorage.setItem("token", data.token);
             history.push("/dashboard");
