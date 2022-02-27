@@ -10,8 +10,8 @@ import Login from "./pages/Login/Login";
 import Register from "./pages/Register/Register";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import NotFound from "./pages/NotFound/NotFound";
-import Quiz from "./pages/Quiz/quiz";
-import Lesson from "./pages/Lesson/lesson";
+import Quiz from "./pages/Quiz/Quiz";
+import Lesson from "./pages/Lesson/Lesson";
 const authGuard = (Component) => {
     return localStorage.getItem("token") ? <Component /> : <Redirect to="/login" />
 }

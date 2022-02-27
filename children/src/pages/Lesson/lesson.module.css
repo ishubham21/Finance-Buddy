@@ -31,3 +31,13 @@
     font-size: 1.6em;
     line-height: 1.8em;
 }
+
+button{
+    display: block;
+    margin: auto;
+    padding: 10px 15px;
+    background-color: #fff;
+    border: 1px solid #999;
+    cursor: pointer;
+    border-radius: 5px;
+}
