@@ -3,7 +3,28 @@ import styles from "./lesson.module.css";
 import { useState } from "react";
 import { useHistory, Link } from "react-router-dom";
 
-function lesson() {
+const Lesson = () => {
+    const [lesson, setLesson] = useState(null);
+        const requestOptions = {
+            method: 'GET',
+        };
+
+    fetch(
+        "https://finance-buddy-backend.vercel.app/lesson?topic=sip", requestOptions
+    )
+    .then((response) => response.json()) // convert to json
+            .then(({ error, data }) => {
+                const hasError = error != null;
+                if (!hasError) {
+                    setLesson(data.lesson);
+                } else {
+                    setLesson("error");
+                }
+            })
+            .catch((err) => {
+                console.log(err);
+            }); // Catch errors
+
     return (
         <div className={styles.lesson}>
             <div className={styles.header}>
@@ -31,10 +52,10 @@ function lesson() {
                 vary from one SIP instalment to another. Over time, the cost of purchase
                 averages out and turns out to be on the lower side. This is known as
                 rupee cost averaging. This benefit is not available when you invest a
-                lump sum.</p> 
+                lump sum.</p>
             </div>
         </div>
     );
-}
+};
 
-export default lesson;
+export default Lesson;
