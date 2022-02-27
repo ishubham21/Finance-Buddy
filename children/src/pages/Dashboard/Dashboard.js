@@ -118,7 +118,7 @@ const Dashboard = () => {
 
                                     {childData.assignedLessons.length === 0 ? <div className={styles.lesson}>No dues</div> : childData.assignedLessons.map((lesson, index) => {
                                         return <div className={styles.lesson} key={index} onClick={loadLesson(lesson.lessonTopic)}>
-                                            {lesson.topic.toUpperCase()}
+                                            {lesson.lessonTopic.toUpperCase()}
                                         </div>
                                     })}
                                 </div>
