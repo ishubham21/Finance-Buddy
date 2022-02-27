@@ -81,7 +81,7 @@ const Dashboard = () => {
 
     return (<>
         {error && <h1>Some error occured, please refresh!</h1>}
-        {loading && <div>Loading your content...</div>}
+        {loading && <div className={styles.loading}>Loading your content...</div>}
         {!error && !loading && parentData && <div className={styles.wrapper}>
             <div className={styles.navbar}>
                 <h1 className={styles.logo}>Finance Buddy</h1>
@@ -150,7 +150,7 @@ const Dashboard = () => {
                             })}
                         </div>
                         <div className={styles.track}>
-                            <h2>Completed Quizzes</h2>
+                            <h2>Completed Lessons</h2>
                             {parentData.lessonHistory === 0 ? <div>No data to display</div> : parentData.lessonHistory.map((history, index) => {
                                 return (<div key={index}>
                                     <p><strong>Name:</strong> {history.name}</p>
