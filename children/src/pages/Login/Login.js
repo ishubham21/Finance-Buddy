@@ -1,15 +1,60 @@
 import React from "react";
 import styles from "./Login.module.css";
-import { Link } from "react-router-dom";
+import { useState } from "react";
+import { useHistory, Link } from "react-router-dom";
 const Login = () => {
-return (
+  const [email, setEmail] = useState(null);
+  const [password, setPassword] = useState(null);
+  const [statusText, setStatusText] = useState(null);
+  const history = useHistory();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const requestOptions = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email,
+        password,
+      }),
+    };
+
+    setStatusText("Checking");
+    fetch(
+      "https://finance-buddy-backend.vercel.app/child/login",
+      requestOptions
+    )
+      // Handle success
+      .then((response) => response.json()) // convert to json
+      .then(({ error, data }) => {
+        const hasError = error != null;
+        setStatusText(hasError ? `${error}` : "logging in");
+        if(!hasError){
+          setTimeout(() => {
+            localStorage.setItem("token", data.token);
+            history.push("/dashboard");
+          }, 3000);
+        }
+      })
+
+      .catch((err) => {
+        setStatusText(err);
+        console.log(err);
+      }); // Catch errors
+  };
+
+  return (
     <div className={styles.wrapper}>
       <div className={styles.login_div}>
+        {statusText && <div className={styles.status}>{statusText}</div>}
         <fieldset>
           <legend className={styles.registrationFormLegend}>
             Sign in to Finance Buddy
           </legend>
-          <form>
+          <form onSubmit={handleSubmit}>
             <div className="form-group">
               {/* <label htmlFor="inputForEmail">Email address</label> */}
               {/* <span className="mandatory">*</span> */}
@@ -19,7 +64,10 @@ return (
                 className="form-control mandatory"
                 aria-describedby="Enter email address"
                 placeholder="Email"
-                />
+                onChange={(e) => {
+                  setEmail(e.target.value);
+                }}
+              />
             </div>
             <div className="form-group">
               {/* <label htmlFor="inputForPassword">Password</label> */}
@@ -29,6 +77,9 @@ return (
                 className="form-control mandatory"
                 id="inputForPassword"
                 placeholder="Password"
+                onChange={(e) => {
+                  setPassword(e.target.value);
+                }}
               />
             </div>
             <div className={styles.button_container}>
