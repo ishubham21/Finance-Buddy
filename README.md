@@ -18,6 +18,11 @@ isFresher : False
 
 ---
 
+### Repositories 
+
+Frontend - [https://github.com/khush2706/Finance-Buddy](https://github.com/khush2706/Finance-Buddy)
+Backend - [https://github.com/khush2706/Finance-Buddy-Backend](https://github.com/khush2706/Finance-Buddy-Baackend)
+
 ### Description of Problem
 
 Remember the time when you got your first salary and wasted it because you did not know how to invest/save it wisely?
