@@ -46,13 +46,26 @@ Children can choose to invest or save this money
 
 ### Images 
 
+- Login Screens
 <p><img src="https://github.com/ishubham21/Finance-Buddy/blob/master/readme-assets/1.png"></p>
 <p><img src="https://github.com/ishubham21/Finance-Buddy/blob/master/readme-assets/2.png"></p>
 <p><img src="https://github.com/ishubham21/Finance-Buddy/blob/master/readme-assets/3.png"></p>
+
+- Parent Dasboard
 <p><img src="https://github.com/ishubham21/Finance-Buddy/blob/master/readme-assets/4.png"></p>
+
+ - Quiz Manager for Parents
 <p><img src="https://github.com/ishubham21/Finance-Buddy/blob/master/readme-assets/5.png"></p>
+
+- Lesson Manager for parents 
 <p><img src="https://github.com/ishubham21/Finance-Buddy/blob/master/readme-assets/6.png"></p>
+
+- Child Dasboard
 <p><img src="https://github.com/ishubham21/Finance-Buddy/blob/master/readme-assets/7.png"></p>
+
+- Lesson for child
 <p><img src="https://github.com/ishubham21/Finance-Buddy/blob/master/readme-assets/8.png"></p>
+
+- Quiz for Child
 <p><img src="https://github.com/ishubham21/Finance-Buddy/blob/master/readme-assets/9.png"></p>
 
