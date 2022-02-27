@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react"
+import styles from './Quiz.module.css'
 
 const Quiz = () => {
 
@@ -69,10 +70,11 @@ const Quiz = () => {
             .catch(err => console.log(err))
     }
 
-    return (<>
-        {loading && <div>Loading data...</div>}
-        {parentData && !loading && <div>
-            <div>
+    return (<div className={styles.wrapper}>
+        {loading && <div className={styles.loading}>Loading data...</div>}
+        {parentData && !loading && <div className={styles.topLevel}>
+            <h1>Quiz Manager</h1>
+            <div className={styles.content}>
                 <h3>Assign a new Quiz</h3>
                 <div>
                     <form onSubmit={addQuiz}>
@@ -102,20 +104,20 @@ const Quiz = () => {
                 </div>
             </div>
 
-            <div>
+            <div className={styles.content}>
                 <h3>Previously Assigned Quizzes</h3>
                 <div>
                     {parentData.assignedQuizzes && parentData.assignedQuizzes.map((quiz, index) => {
                         return <div key={index}>
-                            <p>Name: {quiz.name}</p>
-                            <p>Topic: {quiz.quizTopic.toUpperCase()}</p>
-                            <p>Completed: {quiz.completed ? 'Yes' : 'No'}</p>
+                            <p><strong>Name:</strong> {quiz.name}</p>
+                            <p><strong>Topic:</strong> {quiz.quizTopic.toUpperCase()}</p>
+                            <p><strong>Completed:</strong> {quiz.completed ? 'Yes' : 'No'}</p>
                         </div>
                     })}
                 </div>
             </div>
         </div>}
-    </>)
+    </div>)
 }
 
 export default Quiz

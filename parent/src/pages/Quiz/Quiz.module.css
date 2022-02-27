@@ -1,0 +1,71 @@
+.wrapper{
+    background-color: #ecf8ff;
+    height: 100vh;
+}
+
+.loading{
+    font-size: 25px;
+    text-align: center;
+    padding-top: 60px;
+}
+
+.content{
+    background-color: #fff;
+    width: 50%;
+    margin: auto;
+    margin-top: 25px;
+    padding: 20px;
+}
+
+.content div{
+    background-color: #fff;
+    margin-top: 20px;
+}
+
+.content h3{
+    padding-bottom: 15px;
+    border-bottom: 1px solid #999;
+}
+
+.topLevel{
+    padding-top: 50px;
+    display: flex;
+    justify-items: center;
+    flex-direction: column;
+}
+
+.content form{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.content form label{
+    display: block;
+    margin-right: 25px;
+    font-weight: bolder;
+}
+
+.content form select {
+    margin-left: 10px;
+    padding: 10px;
+    border: 1px solid #999;
+    background-color: #fff;
+    border-radius: 5px;
+}
+
+.content form button{
+    display: block;
+    cursor: pointer;
+    padding: 10px 15px;
+    background-color: #fff;
+    outline: none;
+    border: 1px solid #999;
+    border-radius: 5px;
+}
+
+.maj{
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #999;
+}

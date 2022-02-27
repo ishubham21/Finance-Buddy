@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react"
+import styles from './Lesson.module.css'
 
 const Lesson = () => {
     const [parentData, setParentData] = useState(null)
@@ -61,17 +62,18 @@ const Lesson = () => {
             .then(({ error }) => {
                 if (!error) {
                     alert('Assigned successfully')
-                    setDataUpdate(dataUpdate+1)
+                    setDataUpdate(dataUpdate + 1)
                 }
                 console.log(error)
             })
             .catch(err => console.log(err))
     }
 
-    return (<>
-        {loading && <div>Loading data...</div>}
-        {parentData && !loading && <div>
-            <div>
+    return (<div className={styles.wrapper}>
+        {loading && <div className={styles.loading}>Loading data...</div>}
+        {parentData && !loading && <div className={styles.topLevel}>
+            <h1>Lesson Manager</h1>
+            <div className={styles.content}>
                 <h3>Assign a new Quiz</h3>
                 <div>
                     <form onSubmit={addLesson}>
@@ -101,20 +103,20 @@ const Lesson = () => {
                 </div>
             </div>
 
-            <div>
+            <div className={styles.content}>
                 <h3>Previously Assigned Quizzes</h3>
                 <div>
                     {parentData.assignedLessons && parentData.assignedLessons.map((lesson, index) => {
-                        return <div key={index}>
-                            Name: {lesson.name}
-                            Topic: {lesson.lessonTopic}
-                            Completed: {lesson.completed ? 'Yes' : 'No'}
+                        return <div key={index} className={styles.maj}>
+                            <p><strong>Name:</strong> {lesson.name}</p>
+                            <p><strong>Topic:</strong> {lesson.lessonTopic}</p>
+                            <p><strong>Completed:</strong> {lesson.completed ? 'Yes' : 'No'}</p>
                         </div>
                     })}
                 </div>
             </div>
         </div>}
-    </>)
+    </div>)
 }
 
 export default Lesson
