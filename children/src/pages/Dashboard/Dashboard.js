@@ -3,9 +3,16 @@ import styles from "./Dashboard.css";
 import { useHistory } from "react-router-dom";
 
 const Dashboard = () => {
-    const [dashboard, setDashboard] = useState(null);
+
+    const [childData, setChildData] = useState(null)
+    const [error, setError] = useState(null)
     const history = useHistory();
-    console.log(localStorage.getItem("token"));
+
+    const logout = () => {
+        history.push('/login')
+        localStorage.clear()
+    }
+
     const requestOptions = {
         method: "GET",
         headers: {
@@ -19,14 +26,33 @@ const Dashboard = () => {
             "https://finance-buddy-backend.vercel.app/child/dashboard",
             requestOptions
         )
-        .then((response) => response.json()) // convert to json
-        .then(data => console.log(data))
-        .catch((err) => {
-            console.log(err);
-          }); // Catch errors
-    }, []);
+            .then((response) => response.json()) // convert to json
+            .then(({ error, data }) => {
 
-    return <h1>Dashboard</h1>;
+                const hasError = error != null
+                if (!hasError) {
+                    setChildData(data.child)
+                    localStorage.setItem("child", childData)
+                }
+                else {
+                    setError(error)
+                }
+            })
+            .catch((err) => {
+                console.log(err);
+            }); // Catch errors
+    }, [requestOptions]);
+
+    return (<>
+
+        {/* {error && <h2>Looks like something broke, please refresh! </h2>}*/}
+
+        {!error && <div style={styles.wrapper}>
+            <h1>Dashboard</h1>
+            <button onClick={logout}>Logout</button>
+        </div>}
+
+    </>);
 };
 
 export default Dashboard;
