@@ -1,12 +1,24 @@
 import React from "react";
 import styles from "./Login.module.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useHistory, Link } from "react-router-dom";
+import alanBtn from '@alan-ai/alan-sdk-web';
 const Login = () => {
   const [email, setEmail] = useState(null);
   const [password, setPassword] = useState(null);
   const [statusText, setStatusText] = useState(null);
   const history = useHistory();
+
+  useEffect(() => {
+    alanBtn({
+        key: 'c36fceb84f21ccc938bf6be33a533f4b2e956eca572e1d8b807a3e2338fdd0dc/stage',
+        onCommand: (commandData) => {
+          if (commandData.command === 'go:back') {
+            // Call the client code that will react to the received command
+          }
+        }
+    });
+  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -21,6 +33,8 @@ const Login = () => {
         password,
       }),
     };
+
+
 
     setStatusText("Checking");
     fetch(
