@@ -131,3 +131,8 @@ h1{
   box-shadow: #3c4fe0 0 3px 7px inset;
   transform: translateY(2px);
 }
+
+a, a:link, a:visited, a:focus, a:hover, a:active{
+    text-decoration: none;
+    color: #fff;
+}

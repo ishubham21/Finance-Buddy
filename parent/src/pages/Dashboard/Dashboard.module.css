@@ -1,0 +1,134 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body,html{
+    height: 150vh;
+}
+.wrapper{
+    display: flex;
+}
+.navbar{
+    display: flex;
+    flex-direction: column;
+    height: 150vh;
+    width: 15%;
+    /* justify-content: space-between; */
+    box-shadow: 0px 15px 10px -15px #111;
+    padding: 1em 2em 0; 
+    background-image: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
+}
+.logo{
+    font-size: 2.5em;
+    text-align: center;
+    color: #fff;
+    margin-bottom: 1.5em;
+}
+
+.user_icon{
+    border-radius: 50%;
+    width: 3em;
+    height: 3em;
+    background-color: rgb(255, 8, 144);
+    cursor: pointer;
+}
+
+.list_item{
+    margin-bottom: 0.5em;
+    list-style: none;
+    margin-bottom: 1.2em;
+    font-size: 2em;
+    color: #fff;
+    font-style: arial;
+
+}
+
+.first_section{
+    display: flex;
+    margin-top: 2em;
+    padding: 0.5em 2em 0.5em 4em;
+    justify-content: space-between;
+}
+
+.second_section{
+    display: flex;
+}
+
+.small_heading{
+    font-size: 1.5em;
+    letter-spacing: 1.2px;
+}
+
+.big_heading{
+    font-size: 2.5em;
+    font-weight: 600;
+    letter-spacing: 1.2px;
+}
+.progress{
+    width: 70%;
+    background-color: #fff;
+    padding: 1em;
+    font-size: 2.5em;
+    text-align: center;
+    margin-left: 1.5em;
+    margin-right: 1.5em;
+    margin-top: 1.2em;
+}
+
+.add_children{
+    padding: 1em;
+    margin-left: 2em;
+    margin-top: 3em;
+    background-color: #fff;
+    height: 15em;
+    padding-top: 2em;
+}
+
+.addChildrenLegend{
+    font-size: 2em;
+    text-align: center;
+    margin-bottom: 1em;
+}
+
+.form_control{
+    width: 8em;
+    height: 0.8em;
+    background-color: #f3f7fa;
+}
+
+.dashboard_body{
+    width: 85%;
+    background-color: #ecf8ff;
+}
+
+.third_section{
+    margin-top: 2em;
+    padding: 0.5em 2em 0.5em 4em;
+    height: 15em;
+}
+
+.section_heading{
+    font-size: 2em;
+    letter-spacing: 1.2px;
+    margin-bottom: 1em;
+}
+
+span{
+    font-weight: 600;
+}
+
+.tracks_wrapper{
+    display: flex;
+    height: 100%;
+}
+
+.track{
+    width: 50%;
+    text-align: center;
+    padding-top: 1.5em;
+    background-color: #fff;
+    margin-right: 1.5em;
+    font-size: 2em;
+
+}
