@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styles from "./Dashboard.module.css";
 import { Link, useHistory } from "react-router-dom";
+import alanBtn from '@alan-ai/alan-sdk-web';
 
 const Dashboard = () => {
 
@@ -53,7 +54,16 @@ const Dashboard = () => {
             "auth-token": localStorage.getItem("token"),
         },
     };
-
+    useEffect(() => {
+        alanBtn({
+            key: 'c36fceb84f21ccc938bf6be33a533f4b2e956eca572e1d8b807a3e2338fdd0dc/stage',
+            onCommand: (commandData) => {
+              if (commandData.command === 'go:back') {
+                // Call the client code that will react to the received command
+              }
+            }
+        });
+      }, []);
     useEffect(() => {
         fetch(
             "https://finance-buddy-backend.vercel.app/parent/dashboard",
