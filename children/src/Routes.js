@@ -10,6 +10,7 @@ import Register from "./pages/Register/Register";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import NotFound from "./pages/NotFound/NotFound";
 import Quiz from "./pages/Quiz/quiz";
+import Lesson from "./pages/Lesson/quiz";
 const Routes = (props) => (
   <Router {...props}>
     <Switch>
@@ -21,6 +22,9 @@ const Routes = (props) => (
       </Route>
       <Route path="/dashboard">
         <Dashboard />
+      </Route>
+      <Route path="/lesson">
+        <Lesson />
       </Route>
       <Route path="/quiz">
         <Quiz />

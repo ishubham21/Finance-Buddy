@@ -11,6 +11,7 @@ import Register from "./pages/Register/Register";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import NotFound from "./pages/NotFound/NotFound";
 import Quiz from "./pages/Quiz/quiz";
+import Lesson from "./pages/Lesson/lesson";
 const authGuard = (Component) => {
     return localStorage.getItem("token") ? <Component /> : <Redirect to="/login" />
 }
@@ -23,6 +24,9 @@ const App = () => (
             </Route>
             <Route path="/quiz">
                 <Quiz />
+            </Route>
+            <Route path="/lesson">
+                <Lesson />
             </Route>
             <Route path="/register">
                 <Register />
