@@ -139,3 +139,8 @@ input:focus{
     text-decoration: none;
     color: rgb(44, 43, 43);
 }
+
+.status{
+    font-weight: bold;
+    font-size: 18px;
+}

@@ -1,9 +1,52 @@
 import React from "react";
 import styles from "./Register.module.css";
-import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { useState } from "react";
+import { useHistory, Link } from "react-router-dom";
 
 const Register = () => {
+  const [name, setName] = useState(null);
+  const [email, setEmail] = useState(null);
+  const [password, setPassword] = useState(null);
+  const [statusText, setStatusText] = useState(null);
+  const history = useHistory();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const requestOptions = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        name,
+        email,
+        password,
+      }),
+    };
+
+    setStatusText("Registration in progress");
+    fetch(
+      "https://finance-buddy-backend.vercel.app/child/register",
+      requestOptions
+    )
+      // Handle success
+      .then((response) => response.json()) // convert to json
+      .then(({ error }) => {
+        const hasError = error != null;
+        setStatusText(
+          hasError
+            ? `${error}`
+            : `Congratulations, ${name}. You have been successfully registered!`
+        );
+        history.push("/login");
+      })
+
+      .catch((err) => {
+        setStatusText(err);
+        console.log(err);
+      }); // Catch errors
+  };
 
   return (
     <div className={styles.wrapper}>
@@ -21,20 +64,24 @@ const Register = () => {
         </div>
       </div>
       <div className={styles.login_div}>
+        {statusText && <div className={styles.status}>{statusText}</div>}
         <fieldset>
           <legend className={styles.registrationFormLegend}>
             Create Account
           </legend>
-          <form>
+          <form onSubmit={handleSubmit}>
             <div className="form-group">
               {/* <label htmlFor="inputForName">Your Name</label> */}
               {/* <span className="mandatory">*</span> */}
               <input
-                id="inputForName"
+                id="name"
                 type="text"
                 className="form-control mandatory"
                 aria-describedby="Enter your name"
                 placeholder="Name"
+                onChange={(e) => {
+                  setName(e.target.value);
+                }}
               />
             </div>
 
@@ -47,6 +94,9 @@ const Register = () => {
                 className="form-control mandatory"
                 aria-describedby="Enter email address"
                 placeholder="Email"
+                onChange={(e) => {
+                  setEmail(e.target.value);
+                }}
               />
             </div>
             <div className="form-group">
@@ -57,6 +107,9 @@ const Register = () => {
                 className="form-control mandatory"
                 id="inputForPassword"
                 placeholder="Password"
+                onChange={(e) => {
+                  setPassword(e.target.value);
+                }}
               />
             </div>
             <div className={styles.button_container}>
