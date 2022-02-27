@@ -3,7 +3,7 @@ import styles from "./quiz.module.css";
 import { useState } from "react";
 import { useHistory, Link } from "react-router-dom";
 
-function quiz(){
+function Quiz(){
     return(
         <div className={styles.quiz}>
             <div className={styles.header}>
@@ -38,4 +38,4 @@ function quiz(){
     )
 }
 
-export default quiz;
+export default Quiz;

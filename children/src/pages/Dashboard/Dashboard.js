@@ -21,17 +21,21 @@ const Dashboard = () => {
         },
     };
 
+    const loadLesson = (topic) => {
+        history.push(`/lesson?topic=${topic}`)
+    }
+
     useEffect(() => {
         fetch(
             "https://finance-buddy-backend.vercel.app/child/dashboard",
             requestOptions
         )
             .then((response) => response.json()) // convert to json
-            .then(({ error, data }) => {
+            .then(({ error, data, content }) => {
                 const hasError = error != null;
                 if (!hasError) {
-                    setChildData(data.child);
-                    localStorage.setItem("child", childData);
+                    setChildData(data.content);
+                    localStorage.setItem("child", JSON.stringify(data.content));
                 } else {
                     setError(error);
                 }
@@ -45,16 +49,13 @@ const Dashboard = () => {
         <>
             {/* {error && <h2>Looks like something broke, please refresh! </h2>}*/}
 
-            {!error && (
+            {!error && childData && (
                 <div className={styles.wrapper}>
-                    {/* <h1>Dashboard</h1>
-            <button onClick={logout}>Logout</button> */}
                     <div className={styles.navbar}>
                         <h1 className={styles.logo}>Finance Buddy</h1>
                         <div className={styles.sidebar_content}>
                             <ul className={styles.side_menu}>
                                 <li className={styles.list_item}>Dashboard</li>
-                                <li className={styles.list_item}>Settings</li>
                                 <li className={styles.list_item} onClick={logout}>
                                     Log Out
                                 </li>
@@ -64,7 +65,7 @@ const Dashboard = () => {
                     <div className={styles.dashboard_body}>
                         <div className={styles.first_section}>
                             <div className={styles.name_div}>
-                                <p className={styles.small_heading}>Hi John,</p>
+                                <p className={styles.small_heading}>Hi {childData.name},</p>
                                 <p className={styles.big_heading}>What will you learn today?</p>
                             </div>
                             <div className={styles.user_icon}></div>
@@ -75,18 +76,20 @@ const Dashboard = () => {
                                     <span>Your</span> History
                                 </p>
                                 <div className={styles.history_content}>
-                                    <div className={styles.history}>
-                                        <p className={styles.content}>SIP Quiz</p>
-                                        <p className={styles.content}>5 points</p>
-                                    </div>
-                                    <div className={styles.history}>
-                                        <p className={styles.content}>SIP Lesson</p>
-                                        <p className={styles.content}>Done</p>
-                                    </div>
-                                    <div className={styles.history}>
-                                        <p className={styles.content}>NFT Quiz</p>
-                                        <p className={styles.content}>3 points</p>
-                                    </div>
+                                    <h3 style={{ marginBottom: '10px' }}>Your Quizzes</h3>
+                                    {childData.quizHistory.length === 0 ? <div className={styles.history}>No past records</div> : childData.quizHistory.map((quiz, index) => {
+                                        return <div className={styles.history} key={index}>
+                                            <p className={styles.content}>{quiz.topic.toUpperCase()} Quiz</p>
+                                            <p className={styles.content}>{quiz.score} points</p>
+                                        </div>
+                                    })}
+
+                                    <h3 style={{ marginBottom: '10px' }}>Your Lessons</h3>
+                                    {childData.lessonHistory.length === 0 ? <div className={styles.history}>No past records</div> : childData.lessonHistory.map((lesson, index) => {
+                                        return <div className={styles.history} key={index}>
+                                            <p className={styles.content}>{lesson.topic.toUpperCase()} Quiz</p>
+                                        </div>
+                                    })}
                                 </div>
                             </div>
                             <div className={styles.upcoming_tests_wrapper}>
@@ -94,12 +97,12 @@ const Dashboard = () => {
                                     <span>Upcoming</span> Tests
                                 </p>
                                 <div className={styles.tests_content}>
-                                    <div className={styles.test}>
-                                        <p className={styles.content_sm}>Mutual Funds Quiz</p>
-                                    </div>
-                                    <div className={styles.test}>
-                                        <p className={styles.content_sm}>Crypto Quiz</p>
-                                    </div>
+
+                                    {childData.assignedQuizzes.length === 0 ? <div className={styles.test}>No dues</div> : childData.assignedQuizzes.map((quiz, index) => {
+                                        return <div className={styles.test} key={index}>
+                                            <p className={styles.content_sm}>{quiz.quizTopic.toUpperCase()}</p>
+                                        </div>
+                                    })}
                                 </div>
                             </div>
                         </div>
@@ -109,10 +112,12 @@ const Dashboard = () => {
                             </p>
                             <div className={styles.lesson_wrapper}>
                                 <div className={styles.track}>
-                                    <div className={styles.lesson}>Crypto Lesson</div>
-                                    <div className={styles.lesson}>NFTs Lesson</div>
-                                    <div className={styles.lesson}>Mutual Funds Lesson</div>
-                                    <div className={styles.lesson}>SIP Lesson</div>
+
+                                    {childData.assignedLessons.length === 0 ? <div className={styles.lesson}>No dues</div> : childData.assignedLessons.map((lesson, index) => {
+                                        return <div className={styles.lesson} key={index} onClick={loadLesson(lesson.topic)}>
+                                            {lesson.topic.toUpperCase()}
+                                        </div>
+                                    })}
                                 </div>
                             </div>
                         </div>
